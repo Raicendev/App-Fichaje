@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="login.component.css">
+  <title>INICIO SESIÓN</title>
+</head>
+<body>
+  <div class="container-form sign-in">
+    <div class="information">
+      <div class="info-childs">
+        <h2>Bienvenido/a</h2>
+        <p>¿No tienes cuenta para realiza el fichaje en tu empresa?</p>
+        <br/>
+        <input type="button" value="¡Registrarse!" id="sign-in" (click)="irRegistro()">
+      </div>
+    </div>
+    <div class="form-information">
+      <div class="form-information-childs">
+        <div class="icons">
+          <i class='bx bxl-google'></i>
+        </div>
+        <p>o usa tu correo para iniciar sesión</p>
+        <form class="form form-sing-in" #loginForm="ngForm" (ngSubmit)="iniciarSesion(usuario, contrasena)" novalidate>
+          <div>
+            <label >
+              <i class='bx bx-envelope' ></i>
+              <input type="email" placeholder="Correo Electronico" id="userEmail" name="usuario" [(ngModel)]="usuario" required email>
+            </label>
+          </div>
+          <div>
+            <label>
+              <i class='bx bx-lock-alt' ></i>
+              <input type="password" placeholder="Contraseña" id="userPassword" name="contrasena" [(ngModel)]="contrasena" required>
+            </label>
+          </div>
+
+          <button type="submit" value="Iniciar sesión">Iniciar sesión</button>
+
+          <div class="alerta-error" *ngIf="showAlertError">{{ errorMessage }}</div>
+          <div class="alerta-exito" *ngIf="showAlertSuccess">Has iniciado sesión correctamente. Redirigiendo...</div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-form login hide">
+    <div class="information">
+      <div class="info-childs">
+        <h2>¡¡Bienvenido nuevamente!!</h2>
+        <p>Para unirte a nuestra comunidad por favor Inicia Sesión con tus datos personales</p>
+        <input type="button" value="Registrarse" id="sign-up" routerLink="/register">
+      </div>
+    </div>
+    <div class="form-information">
+      <div class="form-information-childs">
+        <h2>Iniciar Sesión</h2>
+        <div class="icons">
+          <i class='bx bxl-google'></i>
+        </div>
+        <p>o Iniciar Sesión con una cuenta</p>
+        <form class="form form-login" #loginForm2="ngForm" (ngSubmit)="iniciarSesion(usuario, contrasena)" novalidate>
+          <div>
+            <label >
+              <i class='bx bx-envelope' ></i>
+              <input type="email" placeholder="Correo Electronico" id="userEmail" name="usuario" [(ngModel)]="usuario" required email>
+            </label>
+          </div>
+          <div>
+            <label>
+              <i class='bx bx-lock-alt' ></i>
+              <input type="password" placeholder="Contraseña" id="userPassword" [(ngModel)]="contrasena" name="contrasena" required>
+            </label>
+          </div>
+          <button type="submit" value="Iniciar Sesión">Iniciar Sesión</button>
+          <div class="alerta-error" *ngIf="showAlertError">{{ errorMessage }}</div>
+          <div class="alerta-exito" *ngIf="showAlertSuccess">Te registraste correctamente</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

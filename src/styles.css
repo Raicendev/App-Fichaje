@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.fondoBusqueda {
+
+    background-image: url('/FondoBusqueda.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    
+}

@@ -1,0 +1,256 @@
+/* Estilos base para pantallas más grandes (laptops) */
+.titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  
+  .texto {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.9em;
+  }
+  
+  .containerBusqueda {
+    background-color: darkviolet;
+    align-content: center;
+    width: 85%;
+    max-width: 550px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    opacity: 0.85;
+    border: 4px solid gold;
+    border-radius: 25px;
+    box-sizing: border-box;
+    min-height: auto;
+  }
+
+  .containerResultado {
+    background-color: darkviolet;
+    align-content: center;
+    width: 75%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    opacity: 0.85;
+    border: 4px solid gold;
+    border-radius: 25px;
+    box-sizing: border-box;
+    min-height: auto;
+  }
+  
+  .contenidoResultado {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+  }
+  
+  .menError {
+    font-size: 1em;
+    color: #f8f8ff;
+  }
+  
+  .botonBusqueda {
+    background-color: snow;
+    border-radius: 100px;
+    border: 2px solid gold;
+    color: darkviolet;
+    margin-top: 20px;
+    padding: 0.7em 1.5em;
+    font-size: 0.9em;
+  }
+  
+  .botonBusqueda:hover {
+    background-color: violet;
+    color: white;
+    border: 2px solid gold;
+  }
+  
+  .busquedaCampo {
+    border-radius: 100px;
+    color: #f8f8ff;
+    background-color: snow;
+    padding: 0.8em;
+    border: 2px solid gold;
+    width: 80%;
+    max-width: 300px;
+    font-size: 0.9em;
+  }
+  
+  .busquedaCampo::placeholder {
+    color: darkviolet;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9em;
+  }
+  
+  .busquedaCampo:focus {
+    background-color: violet;
+    color: #f8f8ff;
+  }
+  
+  .busquedaCampo:focus::placeholder {
+    color: #f8f8ff;
+  }
+  
+  .oculto {
+    display: none;
+  }
+  
+  .tituloBusqueda {
+    text-decoration: underline 3px gold;
+    margin-bottom: 30px;
+    color: #f8f8ff;
+    font-size: 1.3em;
+  }
+  
+  /* Estilos para la tabla */
+  .table {
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: 0.9em; /* Ajuste para pantallas más grandes */
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.6em 0.8em; /* Ajuste para pantallas más grandes */
+    white-space: nowrap;
+  }
+  
+  /* Estilos para los botones de paginación */
+  .d-flex.justify-content-center.mt-3 button.btn {
+    font-size: 0.8em;
+    padding: 0.4em 0.8em;
+    margin: 0 0.2em;
+  }
+  
+  .btn-primary.titulo {
+    background-color: darkviolet;
+    border-color: gold;
+    color: white;
+  }
+  
+  .btn-primary.titulo:hover {
+    background-color: violet;
+    border-color: gold;
+  }
+  
+  .btn-outline-secondary.titulo {
+    color: #f8f8ff;
+    border-color: gold;
+  }
+  
+  .btn-outline-secondary.titulo:hover {
+    background-color: #f8f9fa;
+    color: darkviolet;
+  }
+  
+  /* Media Query para Tablets (pantallas medianas - desde 769px hasta 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .table th:nth-child(3), /* Ocultar columna Dirección */
+    .table td:nth-child(3),
+    .table th:nth-child(5), /* Ocultar columna Codigo Postal */
+    .table td:nth-child(5) {
+      display: none;
+    }
+  
+    .table {
+      font-size: 0.8em; /* Reducir el tamaño de la fuente */
+    }
+  
+    .table th,
+    .table td {
+      padding: 0.5em 0.6em; /* Reducir el padding */
+    }
+  
+    .containerBusqueda {
+      width: 90%; /* Ajustar ancho del contenedor en tablets */
+      margin-top: 40px; /* Ajustar margen superior */
+      padding: 15px; /* Ajustar padding del contenedor */
+    }
+
+    .containerResultado {
+      width: 90%; /* Ajustar ancho del contenedor en tablets */
+      margin-top: 40px; /* Ajustar margen superior */
+      padding: 15px; /* Ajustar padding del contenedor */
+    }
+  
+    .tituloBusqueda {
+      font-size: 1.2em; /* Ajustar tamaño del título */
+      margin-bottom: 25px; /* Ajustar margen inferior del título */
+    }
+  
+    .busquedaCampo {
+      width: 70%; /* Ajustar ancho del campo de búsqueda */
+    }
+  
+    .botonBusqueda {
+      font-size: 0.85em; /* Ajustar tamaño del botón */
+      padding: 0.6em 1.2em; /* Ajustar padding del botón */
+      margin-top: 15px; /* Ajustar margen superior del botón */
+    }
+  }
+  
+  /* Media Query para Móviles (pantallas pequeñas - hasta 768px) */
+  @media (max-width: 768px) {
+    .table th:nth-child(3), /* Ocultar columna Dirección */
+    .table td:nth-child(3),
+    .table th:nth-child(5), /* Ocultar columna Codigo Postal */
+    .table td:nth-child(5),
+    .table th:nth-child(6), /* Ocultar columna País */
+    .table td:nth-child(6) {
+      display: none;
+    }
+  
+    .table {
+      font-size: 0.75em; /* Reducir aún más el tamaño de la fuente */
+    }
+  
+    .table th,
+    .table td {
+      padding: 0.4em 0.5em; /* Reducir el padding */
+    }
+  
+    .containerBusqueda {
+      width: 95%; /* Ancho completo en móviles */
+      margin-top: 30px; /* Ajustar margen superior */
+      padding: 10px; /* Reducir padding del contenedor */
+    }
+    
+    .containerResultado {
+      width: 95%; /* Ancho completo en móviles */
+      margin-top: 30px; /* Ajustar margen superior */
+      padding: 10px; /* Reducir padding del contenedor */
+    }
+
+    .tituloBusqueda {
+      font-size: 1.1em; /* Ajustar tamaño del título */
+      margin-bottom: 20px; /* Ajustar margen inferior del título */
+      text-decoration: underline 2px gold; /* Ajustar subrayado */
+    }
+  
+    .busquedaCampo {
+      width: 90%; /* Campo de búsqueda más ancho en móviles */
+      font-size: 0.8em; /* Ajustar tamaño de la fuente del campo */
+    }
+  
+    .busquedaCampo::placeholder {
+      font-size: 0.8em; /* Ajustar tamaño del placeholder */
+    }
+  
+    .botonBusqueda {
+      font-size: 0.8em; /* Ajustar tamaño del botón */
+      padding: 0.5em 1em; /* Ajustar padding del botón */
+      margin-top: 10px; /* Ajustar margen superior del botón */
+    }
+  
+    .d-flex.justify-content-center.mt-3 button.btn {
+      font-size: 0.7em; /* Ajustar tamaño de los botones de paginación */
+      padding: 0.25em 0.5em; /* Ajustar padding de los botones de paginación */
+    }
+  }
