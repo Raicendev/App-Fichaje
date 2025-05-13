@@ -1,1 +1,24 @@
-<router-outlet></router-outlet>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi App Angular</title>
+</head>
+<body>
+  <!-- Elimina los comentarios innecesarios o mantenlos solo si son útiles -->
+  <!-- <app-login></app-login> -->
+  <!-- <app-registers></app-registers> -->
+  <!-- <app-home></app-home> -->
+
+  <!-- Navbar con evento para toggle -->
+  <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+
+  <!-- Sidebar, clase controlada por una variable -->
+  <app-sidebar [class.sidebar-open]="siderbarOpen"></app-sidebar>
+
+  <!-- Contenido principal, clase también controlada -->
+  <main [class.sidebar-open]="siderbarOpen">
+    <router-outlet></router-outlet>
+  </main>
+</body>
+</html>

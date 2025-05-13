@@ -1,0 +1,108 @@
+<div class="max-w-6xl mx-auto p-4">
+  <h2 class="text-2xl font-semibold mb-4">Gestión de Solicitudes</h2>
+
+  <div class="flex justify-end mb-4">
+    <button (click)="toggleFormulario()"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded">
+      Solicitar
+    </button>
+  </div>
+
+  <div *ngIf="mostrarFormulario" class="mb-6 p-4 border border-gray-300 rounded-lg">
+    <div class="flex flex-col md:flex-row gap-4 mb-4">
+      <label *ngFor="let tipo of ['vacaciones', 'ausencia', 'baja']" class="flex items-center gap-2 cursor-pointer">
+        <input type="radio" [(ngModel)]="tipoSeleccionado" [value]="tipo" class="form-radio text-blue-600" />
+        <span class="capitalize">{{ tipo }}</span>
+      </label>
+    </div>
+
+    <div *ngIf="errores.length" class="bg-red-100 text-red-700 p-3 rounded mb-4">
+      <ul class="list-disc ml-5">
+        <li *ngFor="let error of errores">{{ error }}</li>
+      </ul>
+    </div>
+
+    <form (ngSubmit)="enviarSolicitud()" class="space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-1">Fecha de inicio *</label>
+          <input type="date" [(ngModel)]="nuevaSolicitud.start_date" name="start_date"
+            class="w-full border border-gray-300 px-3 py-2 rounded" required />
+        </div>
+
+        <div *ngIf="tipoSeleccionado === 'vacaciones'">
+          <label class="block mb-1">Fecha de fin *</label>
+          <input type="date" [(ngModel)]="nuevaSolicitud.end_date" name="end_date"
+            class="w-full border border-gray-300 px-3 py-2 rounded" required />
+        </div>
+      </div>
+
+      <div *ngIf="tipoSeleccionado === 'ausencia' || tipoSeleccionado === 'baja'">
+        <label class="block mb-1">Documento justificativo (opcional)</label>
+        <input type="file" (change)="handleArchivo($event)" accept=".pdf,.jpg,.png" class="w-full" />
+      </div>
+
+      <div>
+        <label class="block mb-1">Comentarios (opcional)</label>
+        <textarea [(ngModel)]="nuevaSolicitud.comment" name="comment" rows="3"
+          class="w-full border border-gray-300 px-3 py-2 rounded"></textarea>
+      </div>
+
+      <div>
+        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded">
+          {{ nuevaSolicitud.id ? 'Guardar cambios' : 'Enviar solicitud' }}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="overflow-auto">
+    <table class="w-full border border-gray-300 text-sm text-left shadow">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-2 border">Usuario</th>
+          <th class="px-4 py-2 border">Tipo</th>
+          <th class="px-4 py-2 border">Inicio</th>
+          <th class="px-4 py-2 border">Fin</th>
+          <th class="px-4 py-2 border">Estado</th>
+          <th class="px-4 py-2 border">Comentario</th>
+          <th class="px-4 py-2 border">Documento</th>
+          <th class="px-4 py-2 border">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitud of solicitudes">
+          <td class="px-4 py-2 border">{{ solicitud.user_DNI }}</td>
+          <td class="px-4 py-2 border">{{ solicitud.rest_type }}</td>
+          <td class="px-4 py-2 border">{{ solicitud.start_date }}</td>
+          <td class="px-4 py-2 border">{{ solicitud.end_date || '-' }}</td>
+          <td class="px-4 py-2 border">
+            <span [ngClass]="{
+              'text-yellow-600': solicitud.status === 'pending',
+              'text-green-600': solicitud.status === 'approved',
+              'text-red-600': solicitud.status === 'denied'
+            }">
+              {{ solicitud.status }}
+            </span>
+          </td>
+          <td class="px-4 py-2 border">{{ solicitud.comment || '-' }}</td>
+          <td class="px-4 py-2 border">
+            <a *ngIf="solicitud.document_url" [href]="solicitud.document_url" target="_blank"
+              class="text-blue-600 underline">Ver</a>
+            <span *ngIf="!solicitud.document_url">-</span>
+          </td>
+          <td class="px-4 py-2 border">
+            <button
+              *ngIf="solicitud.status === 'pending' && (userRole === 'Administrador' || userRole === 'Supervisor')"
+              (click)="aprobarSolicitud(solicitud.id)" class="text-green-600 hover:underline mr-2">✔</button>
+            <button
+              *ngIf="solicitud.status === 'pending' && (userRole === 'Administrador' || userRole === 'Supervisor')"
+              (click)="denegarSolicitud(solicitud.id)" class="text-red-600 hover:underline mr-2">✖</button>
+            <button *ngIf="userRole === 'Administrador' || userRole === 'Supervisor' || userDni === solicitud.user_DNI"
+              (click)="editarSolicitud(solicitud)" class="text-yellow-600 hover:underline">✏️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

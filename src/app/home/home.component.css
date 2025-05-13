@@ -1,0 +1,192 @@
+.landing-container {
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .hero-section {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: white;
+    color: #6e8efb;
+  }
+  
+  .btn-primary:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .feature-card h3 {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-card p {
+    color: #718096;
+  }
+  /* Estilos para el selector de empresa */
+.company-selector {
+  margin: 1.5rem 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.company-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.company-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.company-item:hover {
+  background-color: #f7fafc;
+}
+
+.company-item.selected {
+  background-color: #ebf8ff;
+  font-weight: 600;
+}
+
+.no-results {
+  padding: 1rem;
+  text-align: center;
+  color: #718096;
+}
+
+.selected-company {
+  background-color: #f0fff4;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Estilos para el formulario de admin */
+.admin-actions {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.company-form {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.company-form h3 {
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.company-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.company-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.company-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+.btn-admin {
+  background-color: #9f7aea;
+  color: white;
+}
+
+.btn-admin:hover {
+  background-color: #805ad5;
+}

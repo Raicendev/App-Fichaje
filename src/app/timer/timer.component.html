@@ -1,0 +1,54 @@
+<div class="time-tracking-container">
+    <div class="time-card">
+      <h2>Registro de Tiempo</h2>
+      
+      <div class="time-display">
+        <div class="time-entry">
+          <h3>Entrada</h3>
+          <p>{{ entryTime || '--:--' }}</p>
+        </div>
+        
+        <div class="time-exit">
+          <h3>Salida</h3>
+          <p>{{ exitTime || '--:--' }}</p>
+        </div>
+        
+        <div class="time-total">
+          <h3>Total</h3>
+          <p>{{ calculateWorkedHours() }}</p>
+        </div>
+      </div>
+  
+      <div class="time-actions">
+        <button 
+          *ngIf="currentStatus !== 'in'" 
+          class="btn-entry" 
+          (click)="registerEntry()">
+          Registrar Entrada
+        </button>
+        
+        <button 
+          *ngIf="currentStatus === 'in'" 
+          class="btn-exit" 
+          (click)="registerExit()">
+          Registrar Salida
+        </button>
+      </div>
+    </div>
+  
+    <div class="recent-records">
+      <h3>Registros Recientes</h3>
+      <div class="records-list">
+        <div class="record-item">
+          <span class="record-date">Hoy</span>
+          <span class="record-time">08:30 - 17:45</span>
+          <span class="record-total">9h 15m</span>
+        </div>
+        <div class="record-item">
+          <span class="record-date">Ayer</span>
+          <span class="record-time">08:45 - 17:30</span>
+          <span class="record-total">8h 45m</span>
+        </div>
+      </div>
+    </div>
+  </div>

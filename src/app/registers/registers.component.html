@@ -1,0 +1,67 @@
+<div class="auth-container">
+    <div class="auth-card">
+      <h2>Crear Cuenta</h2>
+      
+      <form [formGroup]="registersForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Nombre Completo</label>
+          <input 
+            type="text" 
+            id="name" 
+            formControlName="name"
+            placeholder="Tu nombre">
+          <div *ngIf="registersForm.get('name')?.invalid && registersForm.get('name')?.touched" class="error">
+            Nombre requerido
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email"
+            placeholder="tu@email.com">
+          <div *ngIf="registersForm.get('email')?.invalid && registersForm.get('email')?.touched" class="error">
+            Email inválido
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            formControlName="password"
+            placeholder="••••••••">
+          <div *ngIf="registersForm.get('password')?.invalid && registersForm.get('password')?.touched" class="error">
+            Mínimo 6 caracteres
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar Contraseña</label>
+          <input 
+            type="password" 
+            id="confirmPassword" 
+            formControlName="confirmPassword"
+            placeholder="••••••••">
+          <div *ngIf="registersForm.hasError('mismatch') && registersForm.get('confirmPassword')?.touched" class="error">
+            Las contraseñas no coinciden
+          </div>
+        </div>
+  
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+  
+        <button type="submit" class="submit-btn" [disabled]="registersForm.invalid">
+          Registrarse
+        </button>
+      </form>
+  
+      <div class="auth-footer">
+        <p>¿Ya tienes cuenta? <a routerLink="/auth/login">Inicia sesión</a></p>
+      </div>
+    </div>
+  </div>

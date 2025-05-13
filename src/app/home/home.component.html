@@ -1,0 +1,92 @@
+<div class="landing-container">
+    <header class="hero-section">
+      <h1>Bienvenido a Timer</h1>
+      <p>Registra y gestiona tus horas de trabajo fácilmente</p>
+     <!-- Selector de empresa -->
+    <div class="company-selector">
+      <div class="search-box">
+        <input 
+          type="text" 
+          placeholder="Busca tu empresa..." 
+          [(ngModel)]="searchTerm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </div>
+      
+      <div class="company-list" *ngIf="searchTerm">
+        <div 
+          *ngFor="let company of filteredCompanies"
+          class="company-item"
+          [class.selected]="selectedCompany?.id === company.id"
+          (click)="selectCompany(company)">
+          {{company.name}} ({{company.code}})
+        </div>
+        <div *ngIf="filteredCompanies.length === 0" class="no-results">
+          No se encontraron empresas
+        </div>
+      </div>
+      
+      <div *ngIf="selectedCompany" class="selected-company">
+        Empresa seleccionada: <strong>{{selectedCompany.name}}</strong>
+      </div>
+    </div>
+     
+    <div class="cta-buttons">
+      <button (click)="navigateToLogin()" class="btn btn-primary">
+        Iniciar Sesión
+      </button>
+      <a routerLink="registers" class="btn btn-secondary">Registrarse</a>
+    </div>
+  </header>
+
+  <div *ngIf="isSuperAdmin" class="admin-actions">
+    <button (click)="toggleCompanyForm()" class="btn btn-admin">
+      {{showCompanyForm ? 'Cancelar' : 'Crear Nueva Empresa'}}
+    </button>
+    
+    <div *ngIf="showCompanyForm" class="company-form">
+      <h3>Crear Nueva Empresa</h3>
+      <form [formGroup]="companyForm" (ngSubmit)="createCompany()">
+        <div class="form-group">
+          <label>Nombre de la Empresa</label>
+          <input type="text" formControlName="name" required>
+        </div>
+        <div class="form-group">
+          <label>Código de la Empresa</label>
+          <input type="text" formControlName="code" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Empresa</button>
+      </form>
+    </div>
+  </div>
+
+
+    <section class="features-section">
+      <div class="feature-card">
+        <h3>Registro Simple</h3>
+        <p>Registra tu entrada y salida con un solo clic</p>
+      </div>
+      <div class="feature-card">
+        <h3>Historial Completo</h3>
+        <p>Accede a tu historial de horas trabajadas</p>
+      </div>
+      <div class="feature-card">
+        <h3>Reportes</h3>
+        <p>Genera reportes de tus horas mensuales</p>
+      </div>
+      <div class="feature-card">
+        <h3>Notificaciones</h3>
+        <p>Recibe alertas de tus horas trabajadas</p>
+      </div>
+      <div class="feature-card">
+        <h3>Calendario</h3>
+        <p>Visualiza tu calendario de horas trabajadas</p>
+      </div>
+      <div class="feature-card">
+        <h3>Alta empresa</h3>
+        <p>Registra tu empresa y tus empleados</p>
+      </div>
+    </section>
+  </div>

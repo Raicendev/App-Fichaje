@@ -1,10 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
-.fondoBusqueda {
+/* Estilos globales */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-    background-image: url('/FondoBusqueda.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: bottom;
-    
-}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7fafc;
+    color: #2d3748;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  /* Clases utilitarias */
+  .text-center {
+    text-align: center;
+  }
+  
+  .mt-1 { margin-top: 0.25rem; }
+  .mt-2 { margin-top: 0.5rem; }
+  .mt-3 { margin-top: 1rem; }
+  .mt-4 { margin-top: 1.5rem; }
+  .mt-5 { margin-top: 2rem; }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  /* Componentes personalizados
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg flex items-center;
+  }
+  
+  .input-field {
+    @apply border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-primary-500;
+  }*/

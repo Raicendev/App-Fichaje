@@ -1,0 +1,137 @@
+.time-tracking-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .time-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .time-card h2 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .time-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .time-entry, .time-exit, .time-total {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  .time-entry {
+    background-color: #ebf8ff;
+    border: 1px solid #bee3f8;
+  }
+  
+  .time-exit {
+    background-color: #fff5f5;
+    border: 1px solid #fed7d7;
+  }
+  
+  .time-total {
+    background-color: #f0fff4;
+    border: 1px solid #c6f6d5;
+  }
+  
+  .time-display h3 {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .time-display p {
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .time-actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn-entry, .btn-exit {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-entry {
+    background-color: #4299e1;
+    color: white;
+  }
+  
+  .btn-entry:hover {
+    background-color: #3182ce;
+  }
+  
+  .btn-exit {
+    background-color: #f56565;
+    color: white;
+  }
+  
+  .btn-exit:hover {
+    background-color: #e53e3e;
+  }
+  
+  .recent-records {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .recent-records h3 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+  }
+  
+  .records-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .record-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .record-item:last-child {
+    border-bottom: none;
+  }
+  
+  .record-date {
+    color: #4a5568;
+  }
+  
+  .record-time {
+    color: #718096;
+    text-align: center;
+  }
+  
+  .record-total {
+    color: #2d3748;
+    font-weight: 600;
+    text-align: right;
+  }
